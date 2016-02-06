@@ -1,0 +1,387 @@
+html {
+	background: #ffffff url(../img/bg-tiles.png);
+}
+body {
+	font-family: Ubuntu, Arial;
+	color: #00587c;
+	margin: 0%;
+	border-spacing: 0px;
+}
+span.greenit {
+	color: #8BB327;
+}
+a {
+	text-decoration: none;
+	color: #00a9e0;
+}
+a:hover {
+	color: #00587c;
+}
+table {
+	border: 0px solid white;
+	width: 100% !important;
+	margin-left: 0%;
+	margin-right: 0%;
+	border-spacing: 0px;
+}
+img {
+	border: 0px solid white;
+}
+
+/* CSS for the main menu header */
+table.moveHeaderToTop {
+	position: fixed;
+	top: 0px;
+	table-layout: fixed;
+	z-index: 999;
+}
+td.menu {
+	background: rgb(216, 216, 216);
+	background: rgba(216, 216, 216, 0.4);
+}
+span.logo {
+	float: left;
+	margin: 6px;
+	margin-left: 20px;
+}
+span.logo:hover {
+	-webkit-transform: scale(1.20);
+	   -moz-transform: scale(1.20);
+	    -ms-transform: scale(1.20);
+	     -o-transform: scale(1.20);
+	        transform: scale(1.20);
+}
+span.mainMenu {
+	float: right;
+	margin: 20px;
+	word-spacing: 20px;
+}
+td.ticker {
+	white-space: nowrap;
+	overflow: hidden;
+}
+span.ticker {
+	overflow: hidden;
+	color: #00a9e0;
+}
+
+@keyframes priceChangeUp {
+	from { background-color: #8BB327; }
+	to { background-color: inherit; }
+}
+
+.priceChangeUp-enter {
+	animation: priceChangeUp 1.1s 1;
+}
+.priceChangeUp-leave {
+    opacity: 0;
+    height: 0;
+    animationName: priceChangeUp;
+}
+
+
+@keyframes priceChangeDown {
+	from { background-color: #FF0000; }
+	to { background-color: inherit; }
+}
+
+.priceChangeDown-enter {
+	animation: priceChangeDown 1.1s 1;
+}
+
+.priceChangeDown-leave {
+    opacity: 0;
+    height: 0;
+    animationName: priceChangeDown;
+}
+
+@keyframes priceChangeFlat {
+	from { background-color: inherit; }
+	to { background-color: inherit; }
+}
+
+.priceChangeFlat-enter {
+	animation: priceChangeFlat .001s 1;
+}
+
+.priceChangeFlat-leave {
+    opacity: 0;
+    height: 0;
+    animationName: priceChangeFlat;
+}
+
+td.bgGradient {
+	line-height: 0.1;
+	background: -webkit-linear-gradient(right, rgba(132,132,132,0.6), rgba(132,132,132,0));
+	background:     -moz-linear-gradient(left, rgba(132,132,132,0.6), rgba(132,132,132,0));
+	background:       -o-linear-gradient(left, rgba(132,132,132,0.6), rgba(132,132,132,0));
+	background:       linear-gradient(to left, rgba(132,132,132,0.6), rgba(132,132,132,0));
+}
+
+/* CSS for the main core of the page */
+div.ytvid {
+	width: 560px;
+	height: 315px;
+	overflow: hidden;
+	position: relative;
+	xclip: rect(10px, 560px, 305px, 0px); /* top, right, bottom, left  - to crop, add to top or left. subtract from right or bottom. */
+	-webkit-border-radius: 14px;
+	   -moz-border-radius: 14px;
+	        border-radius: 14px;
+}
+
+table.noshade {
+	border-spacing: 60px;
+}
+table.shade {
+	border-spacing: 60px;
+	background: rgb(216, 216, 216);
+	background: rgba(216, 216, 216, 0.2);
+}
+
+@keyframes hilightText {
+	from { color: #8BB327; }
+	to   { color: inherit; }
+	0%   { transform: skewX(9deg); }
+	10%  { transform: skewX(-8deg); }
+	20%  { transform: skewX(7deg); }
+	30%  { transform: skewX(-6deg); }
+	40%  { transform: skewX(5deg); }
+	50%  { transform: skewX(-4deg); }
+	60%  { transform: skewX(3deg); }
+	70%  { transform: skewX(-2deg); }
+	80%  { transform: skewX(1deg); }
+	90%  { transform: skewX(0deg); }
+	100% { transform: skewX(0deg); }
+}
+.hilightpos:target h3.posText {
+	animation: hilightText 1s 4;
+}
+.hilightsmartcard:target h3.smartcardText {
+	animation: hilightText 1s 4;
+}
+.hilightshop:target b.shopText {
+	animation: hilightText 1s 4;
+}
+.hilightexchange:target b.exchangeText {
+	animation: hilightText 1s 4;
+}
+.hilightexpo:target h3.expoText {
+	animation: hilightText 1s 4;
+}
+
+			/* Accordion Menu powered by www.menucool.com */
+
+			/* ##### Top level items #####*/
+			#acdnmenu
+			{
+			    /* Note about height:
+			    Set "height:auto;" if flexible height is required.
+			    A fixed height is prefered as content below the menu won't be pulled down/up when the menu is expanding/collapsing. */
+			    height: auto;
+			    width: 190px;
+			    font-size:0;
+			}
+
+
+			#acdnmenu ul.top
+			{
+				padding-left:0;
+			    border:1px solid #D8D8D8;
+				-webkit-border-radius: 8px;
+				   -moz-border-radius: 8px;
+					border-radius: 8px;
+			    background:none;
+			}
+
+			#acdnmenu div.heading, #acdnmenu a.link
+			{
+			    padding:8px; xpadding-left:32px;
+			    outline:none;
+			}
+
+			/* arrow image for the top headings */
+			#acdnmenu div.arrowImage {
+			    width:12px;
+			    height:12px;
+			    top:9px;
+			    right:6px; left:auto; /*Setting "left:8px;right:auto;" will position the arrow image to the left*/
+			    background-image:url(../img/arrows.png);
+			    background-position:0 0;
+			}
+
+			#acdnmenu div.current div.arrowImage {
+			    background-position:0 -12px;
+			}
+
+			#acdnmenu li.separator
+			{
+			    border-top:1px solid #00a9e0;
+			    border-bottom:1px solid #00a9e0;
+			}
+
+
+			/* ##### Sub level items #####*/
+			#acdnmenu ul.sub
+			{
+				padding-left:14px; /*This determines the hierarchical offset*/
+			}
+
+			#acdnmenu ul.sub div.heading
+			{
+			    padding:5px; padding-left:20px;
+			}
+
+			#acdnmenu ul.sub a.link
+			{
+			    padding:5px; padding-left:20px;
+			}
+
+			#acdnmenu ul.sub div.arrowImage {
+			    width:12px;
+			    height:12px;
+			    top:6px;
+			    left:4px;
+			    background-image:url(../img/arrows.png);
+			    background-position:0 -24px;
+			}
+			#acdnmenu ul.sub div.current div.arrowImage {
+			    background-position:0 -36px;
+			}
+
+
+
+			/* ##### Followings usually don't need modification ###### */
+			/*Hack the font-size:0 bug for IE6 */
+			#acdnmenu,  #acdnmenu ul
+			{
+			    display:block;
+			    font-size:0px;
+			    line-height:0px;
+			}
+			#acdnmenu li {font-size:12px; line-height:16px;}
+			#acdnmenu:after {content:'.';height:0;clear:both;display:block;visibility:hidden;}
+			#acdnmenu ul, #acdnmenu li, #acdnmenu div.heading, #acdnmenu a.smLink, #acdnmenu div.description {*zoom:1;}
+			#acdnmenu li {*float:left;*width:190px;}
+
+			#acdnmenu ul
+			{
+				position:relative;/*!*/
+				overflow:hidden;
+				padding:0;margin:0;list-style-type: none;padding-left:10px;
+			}
+			#acdnmenu>ul{visibility: hidden;}
+			#acdnmenu li {padding:0;margin:0;}
+
+			#acdnmenu div.heading, #acdnmenu div.current
+			{
+				position:relative;
+			    cursor: pointer;
+			}
+			#acdnmenu div.arrowImage {position:absolute; overflow:hidden;}
+
+
+
+
+td.sliderFont {
+	font-size: 12px;
+}
+img.slider {
+	width: 148px;
+	height: 200px;
+	border: 1px solid #00587c;
+	-webkit-border-radius: 14px;
+	   -moz-border-radius: 14px;
+	        border-radius: 14px;
+}
+img.top2, img.bottom2 {
+	-webkit-border-radius: 14px;
+	   -moz-border-radius: 14px;
+	        border-radius: 14px;
+}
+img.top, img.bottom {
+	border: 1px solid #00587c;
+	-webkit-border-radius: 14px;
+	   -moz-border-radius: 14px;
+	        border-radius: 14px;
+}
+
+div.press {
+	display: flex;
+	justify-content: space-between;
+}
+img.press {
+	opacity:0.5;
+}
+img.press:hover {
+	opacity:1.0;
+}
+
+.exposmallerfont {
+	font-size: 10pt;
+}
+
+#cf {
+	position:relative;
+	width:320px;
+	height:200px;
+	margin:0 auto;
+}
+#cf img {
+	position:absolute;
+	left:0;
+	-webkit-transition: opacity 0.2s ease-in-out;
+	   -moz-transition: opacity 0.2s ease-in-out;
+	     -o-transition: opacity 0.2s ease-in-out;
+	        transition: opacity 0.2s ease-in-out;
+}
+#cf img.top:hover, img.top2:hover {
+	opacity:0;
+}
+
+details, summary {
+	outline: none;
+	color: #b7b7b7;
+	font-size: 11px;
+	margin-left: 20px;
+}
+details summary:hover {
+	cursor: pointer;
+}
+details[open] summary {
+	font-size: 11px;
+}
+details summary::-webkit-details-marker {
+	display: none;
+}
+details summary:before, details[open] summary:before {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	content: "";
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+/* CSS for the footer */
+div.mountains {
+	xheight: 245px !important;
+	height: 320px !important;
+	overflow: hidden;
+	xbackground: url(../img/bg-footer-small.png);
+	background: url(../img/bg-footer.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+img.grayit {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	width: 40px;
+	height: 40px;
+	border: 0px solid white;
+}
+img.grayit:hover {
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+	border: 0px solid white;
+}

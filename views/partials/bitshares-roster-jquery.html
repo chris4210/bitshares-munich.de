@@ -1,0 +1,141 @@
+<!-- Slider Begin -->
+<script src="js/jssor.slider.mini.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+    var _CaptionTransitions = [];
+    _CaptionTransitions["L"] = { $Duration: 900, x: 0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+    _CaptionTransitions["R"] = { $Duration: 900, x: -0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+    _CaptionTransitions["T"] = { $Duration: 900, y: 0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+    _CaptionTransitions["B"] = { $Duration: 900, y: -0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+    _CaptionTransitions["ZMF|10"] = { $Duration: 900, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 };
+    _CaptionTransitions["RTT|10"] = { $Duration: 900, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+    _CaptionTransitions["RTT|2"] = { $Duration: 900, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 0.5} };
+    _CaptionTransitions["RTTL|BR"] = { $Duration: 900, x: -0.6, y: -0.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+    _CaptionTransitions["CLIP|LR"] = { $Duration: 900, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 };
+    _CaptionTransitions["MCLIP|L"] = { $Duration: 900, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+    _CaptionTransitions["MCLIP|R"] = { $Duration: 900, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+    var options = {
+    $FillMode: 2, $AutoPlay: true, $AutoPlayInterval: 4000, $PauseOnHover: 1, $ArrowKeyNavigation: true, $SlideEasing: $JssorEasing$.$EaseOutQuint, $SlideDuration: 800, 
+    $MinDragOffsetToSlide: 20, $SlideSpacing: 0, $DisplayPieces: 1, $ParkingPosition: 0, $UISearchMode: 1, $PlayOrientation: 1, $DragOrientation: 1, 
+    $CaptionSliderOptions: { 
+    $Class: $JssorCaptionSlider$, $CaptionTransitions: _CaptionTransitions, $PlayInMode: 1, $PlayOutMode: 3 
+    },
+    $BulletNavigatorOptions: { 
+    $Class: $JssorBulletNavigator$, $ChanceToShow: 2, $AutoCenter: 1, $Steps: 1, $Lanes: 1, $SpacingX: 8, $SpacingY: 8, $Orientation: 1 
+    },
+    $ArrowNavigatorOptions: { 
+    $Class: $JssorArrowNavigator$, $ChanceToShow: 1, $AutoCenter: 2, $Steps: 1 
+    }
+    };
+    var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+    //responsive code begin - scaling ------------------------------------- LET'S MAKE ENTIRE PAGE RESPONSIVE IN CAPS SO I DONT FORGET
+    function ScaleSlider() {
+    var bodyWidth = document.body.clientWidth;
+    if (bodyWidth)
+    jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1920));
+    else
+    window.setTimeout(ScaleSlider, 30);
+    }
+    ScaleSlider();
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
+    });
+</script>
+<div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 320px; overflow: hidden;"> 
+    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 320px; overflow: hidden;">
+        <div>
+            <table class="shade">
+            <tr>
+            <td width="20%" align=center><img src="img/team-ken.jpg" alt="" class="slider"></td>
+            <td width="30%" class="sliderFont">
+            <h3>ken Code<br>Delegate &amp; Crypto Coach</h3>
+            Our resident Business and Startups expert, ken brings over 20 years of industry expertise, working with large multi-national and small businesses alike.
+            <p>
+            A Software Developer, Efficiency Expert and R&D fanatic, he also invented the online shopping cart. 
+            <p>
+            New to German culture but a true German at heart, ken is always available for Technical and Business Support.
+            </td>
+            <td width="20%" align=center><img src="img/team-chris.jpg" alt="" class="slider"></td>
+            <td width="30%" class="sliderFont">
+            <h3>Christoph Hering<br>PR Manager &amp; Crypto Coach</h3>
+            Born and raised right here in Munich, Chris is an active Trader and bi-lingual Sales Pro. 
+            <p>
+            He now has over 5 years of experience in Financial Analysis, working with Structured Products and handling of international commercial transactions.
+            <p>
+            When he's not chatting with the Media, Chris is always out there networking and assisting local Business Owners.
+            </td>
+            </tr>
+            </table>
+        </div>
+        <div>
+            <table class="shade">
+            <tr>
+            <td width="20%" align=center><img src="img/team-cristiano.jpg" alt="" class="slider"></td>
+            <td width="30%" class="sliderFont">
+            <h3>Cristiano Zen<br>Wealth Management</h3>
+            Cristiano is a 20+ year Wealth Management, Private Banking and Financial Advisor. 
+            <p>
+            With homes in Switzerland, Munich and Brazil, he specializes in Absolute Return funds, loans, Structuring, offshore companies and multi-currency Trading.
+            <p>
+            Cristiano also speaks Portuguese, German, Spanish and Italian so our international Clients are very happy.
+            </td>
+            <td width="20%" align=center><img src="img/team-michael.jpg" alt="" class="slider"></td>
+            <td width="30%" class="sliderFont">
+            <h3>Michael Ep<br>Bitcoin, Miner &amp; Crypto Coach</h3>
+            Michael is our resident Bitcoin Expert. An avid Software Developer and IT guru, he can answer all of your Bitcoin related technical questions.
+            <p>
+            Michael is also native to Munich, bi-lingual, and assists with many different crypto projects in the area and online.
+            </td>
+            </tr>
+            </table>
+        </div>
+        <div>
+            <table class="shade">
+            <tr>
+            <td width="20%" align=center><img src="img/team-ronny.jpg" alt="" class="slider"></td>
+            <td width="30%" class="sliderFont">
+            <h3>Ronny Boesing<br>Advisor, CCEDK</h3>
+            When converting your fiat currency into crypto, CCEDK (Crypto Coins Exchange Denmark ApS) is the place to do it.
+            <p>
+            CCEDK handles all of our banking, money transfer and fiat exchange services. 
+            <p>
+            Our international Clients love Ronny, as he fluently speaks Danish, German and French as well as some proficiency with Spanish, Norwegian, Swedish and even a little bit of Arabic and Japanese.
+            </td>
+            <td width="20%" align=center><img src="img/team-dan.jpg" alt="" class="slider"></td>
+            <td width="30%" class="sliderFont">
+            <h3>Daniel Larimer<br>Advisor, BitShares</h3>
+            Dan Larimer is an American based entrepreneur and Software Developer with a passion to find free market solutions to secure life, liberty and property. 
+            He has founded two startups and is the originator of the concept of DACs (Decentralized Autonomous Companies). 
+            <p>
+            Dan is the chief architect of the peer-to-peer, trustless, blockchain based financial platform known as BitShares. 
+            </td>
+            </tr>
+            </table>
+        </div>
+    </div>
+        <div id="press"></div>
+    <!-- navigation arrows begin -->
+    <style>
+        .jssora21l, .jssora21r {
+        display: block;
+        position: absolute;
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+        background: url(img/a21.png) center center no-repeat;
+        overflow: hidden;
+        }
+        .jssora21l { background-position: -3px -33px; }
+        .jssora21r { background-position: -63px -33px; }
+        .jssora21l:hover { background-position: -123px -33px; }
+        .jssora21r:hover { background-position: -183px -33px; }
+        .jssora21l.jssora21ldn { background-position: -243px -33px; }
+        .jssora21r.jssora21rdn { background-position: -303px -33px; }
+    </style>
+    <span u="arrowleft" class="jssora21l" style="top: 123px; left: 8px;"> </span>
+    <span u="arrowright" class="jssora21r" style="top: 123px; right: 8px;"> </span>
+    <!-- navigation arrows end -->
+</div>
+<!-- Slider End -->

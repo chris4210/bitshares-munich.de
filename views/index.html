@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block bodyonload %}onload=socketconnect(){% endblock %}
+{% block bodycontent %}
+    {% include 'partials/body-header.html' %}
+    {% include 'partials/script-bitshares-stream.html' %}
+    {% include 'partials/script-bitshares-ticker.html' %}
+    {% include 'partials/body-youtube-video.html' %}
+    {% include 'partials/body-pos.html' %}
+    {% include 'partials/body-smartcard.html' %}
+    {% include 'partials/body-store.html' %}
+    {% include 'partials/body-exchange.html' %}
+    {% include 'partials/body-roster.html' %}
+    {% include 'partials/script-bitshares-roster.html' %}
+    {% include 'partials/body-expo2016.html' %}
+    {% include 'partials/body-details.html' %}
+    {% include 'partials/body-footer.html' %}
+{% endblock %}

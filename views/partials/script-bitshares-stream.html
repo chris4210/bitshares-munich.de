@@ -1,0 +1,10 @@
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        function socketconnect () {
+            var socket = io('http://{{ http_host }}:{{ http_port }}');
+        }
+        var socketioElement=document.createElement('script')
+        socketioElement.setAttribute("type", "text/javascript")
+        socketioElement.setAttribute("src", "/socket.io/socket.io.js")
+        document.head.appendChild(socketioElement)
+    </script>
