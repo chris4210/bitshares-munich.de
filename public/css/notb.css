@@ -1,0 +1,58 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+table, thead, tbody, th, td, tr {
+    display: block;
+}
+thead tr {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+}
+
+tr {
+    /*border: 1px solid #cccccc;*/
+}
+td {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #eeeeee;
+    border-image: none;
+    border-style: none none solid;
+    /*border-width: medium medium 1px;*/
+	/*
+    padding-left: 50%;
+	*/
+    position: relative;
+	width: 100%;
+}
+td::before {
+    left: 6px;
+    padding-right: 10px;
+    position: absolute;
+    top: 6px;
+    white-space: nowrap;
+    width: 45%;
+}
+
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+body {
+    /*
+    margin: 0;
+    padding: 0;
+    width: 320px;
+    */
+}
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+body {
+    /*
+    width: 495px;
+    */
+}
+}

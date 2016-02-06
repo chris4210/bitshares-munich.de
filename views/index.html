@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block bodyonload %}onload=socketconnect(){% endblock %}
 {% block bodycontent %}
-    {% include 'partials/body-header.html' %}
+    {% include 'partials/body-menu.html' %}
     {% include 'partials/script-bitshares-stream.html' %}
     {% include 'partials/script-bitshares-ticker.html' %}
     {% include 'partials/body-youtube-video.html' %}
@@ -12,6 +12,6 @@
     {% include 'partials/body-roster.html' %}
     {% include 'partials/script-bitshares-roster.html' %}
     {% include 'partials/body-expo2016.html' %}
-    {% include 'partials/body-details.html' %}
     {% include 'partials/body-footer.html' %}
+	{% include 'partials/body-bootstrap.html' %}
 {% endblock %}

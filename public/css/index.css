@@ -6,6 +6,9 @@ body {
 	color: #00587c;
 	margin: 0%;
 	border-spacing: 0px;
+	max-width: 100%;
+	width: auto;
+	height: auto;
 }
 span.greenit {
 	color: #8BB327;
@@ -131,14 +134,26 @@ div.ytvid {
 }
 
 table.noshade {
+	/*
 	border-spacing: 60px;
+	*/
 }
 table.shade {
+	/*
 	border-spacing: 60px;
 	background: rgb(216, 216, 216);
 	background: rgba(216, 216, 216, 0.2);
+	*/
 }
+.rostertext {
+	padding-left: 40px !important;
+}
+div.slick-slide.slick-cloned div table.sh tbody tr td {
 
+}
+div.slick-slide div table.sh tbody tr td {
+
+}
 @keyframes hilightText {
 	from { color: #8BB327; }
 	to   { color: inherit; }
@@ -365,8 +380,10 @@ details summary:before, details[open] summary:before {
 
 /* CSS for the footer */
 div.mountains {
+	/*
 	xheight: 245px !important;
 	height: 320px !important;
+	*/
 	overflow: hidden;
 	xbackground: url(../img/bg-footer-small.png);
 	background: url(../img/bg-footer.png);
