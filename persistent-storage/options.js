@@ -8,7 +8,7 @@ module.exports= {
 
     http_port: '',
 
-    http_host: 'bitshares-munich.evennode.com',
+    http_host: 'demo-bitshares1.us-2.evennode.com',
 
     winston_log_level: 'debug',
 
