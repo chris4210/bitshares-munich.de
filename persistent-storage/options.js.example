@@ -22,7 +22,7 @@ module.exports= {
                 feed_url: 'http://api.bitsharesblocks.com/v1/cmc',
                 polling_interval_seconds: 7,
                 instructions: 'these are priced in bitshares, must take value from source and divide by BTS/EUR',
-                whitelist: [ 
+                whitelist: [
                     'blackmagic',
                     'EUR',
                     'BTC'

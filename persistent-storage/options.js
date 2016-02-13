@@ -2,7 +2,7 @@
 
 module.exports= {
     app_title: 'bitshares-munich',
-    http_port: '',
+    http_port: '8081',
     http_host: 'localhost',
     winston_log_level: 'debug',
     price_list_metadata: [
@@ -17,12 +17,12 @@ module.exports= {
     ], 
     datasources:{
         json_api: {
-            bitsharesblocks: {
+/*            bitsharesblocks: {
                 feed_name: 'bitsharesblocks',
-                feed_url: 'http://api.bitsharesblocks.com/v1/cmc',
+                feed_url: '',
                 polling_interval_seconds: 7,
                 instructions: 'these are priced in bitshares, must take value from source and divide by BTS/EUR',
-                whitelist: [ 
+                whitelist: [
                     'blackmagic',
                     'EUR',
                     'BTC'
@@ -63,7 +63,7 @@ module.exports= {
                     'SERVICE',
                     'BTCSHA'
                 ]
-            },
+            },*/
             metaexchange: {
                 feed_name: 'metaexchange',
                 feed_url: 'http://metaexchange.info/api/1/getAllMarkets',

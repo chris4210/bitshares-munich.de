@@ -954,3 +954,10 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #00a9e0;
 }
+
+
+@media (max-width: 750px) {
+    .hidden-xs2 {
+        display: none !important;
+    }
+}

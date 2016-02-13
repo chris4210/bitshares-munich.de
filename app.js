@@ -55,7 +55,7 @@ var TICKER_CONTENT = config.price_list_metadata;
 var EUR_PER_BTS = -1;
 var BTC_PER_BTS = -1;
 
-function selectDistinct(value, index, self) { 
+function selectDistinct(value, index, self) {
     return self.indexOf(value) === index;
 }
 
@@ -114,9 +114,9 @@ var twitterclient = new Twitter({
 })
 
 var params = {
-    screen_name: config.datasources.twitter.latest_tweet_screen_name, 
+    screen_name: config.datasources.twitter.latest_tweet_screen_name,
     limit: 1
-    };
+};
 
 setInterval( function twitterpoller() {
     twitterclient.get('statuses/user_timeline', params, function(error, tweets, response){
@@ -130,7 +130,7 @@ setInterval( function twitterpoller() {
 
 io.sockets.on('connection', function (socket) {
     logger.silly({functionname: 'io.sockets.on - connection'})
-    //qFeedPollers();
+    qFeedPollers();
 
     socket.on('disconnect', function(o) {
         logger.silly({functionname: 'socket.on - disconnect'})
@@ -147,7 +147,7 @@ io.sockets.on('connection', function (socket) {
 
 //send nothing every second to tick the clock
 setInterval( function heartbeat() {
-     io.emit('heartbeat', 'o');
+    io.emit('heartbeat', 'o');
 },1000)
 
 function broadcastPrice(price) {
@@ -184,9 +184,44 @@ function isWhitelisted(price, whitelist ) {
     }
 };
 
+function qFeedPollers() {
 
+    logger.silly({functionname: 'qFeedPollers'})
+    async.map( config.datasources.json_api , function( options ) {
+        if (options.feed_name === 'poloniex') {
+            logger.silly({functionName: 'qFeedPollers~poloniex', running: qPoloniex.running()})
+            //one poller per datasource at a time please.
+            if ( qPoloniex.running() < 1 ) {
+                // download section line 221 doesn't work yet, so disabled here
+                qPoloniex.push( options )
+            }
+        }
+        if (options.feed_name === 'ccedk') {
+            logger.silly({functionName: 'qFeedPollers~ccedk', running: qCcedk.running()})
+            //one poller per datasource at a time please.
+            if ( qCcedk.running() < 1 ) {
+                // download section line 221 doesn't work yet, so disabled here
+                qCcedk.push( options )
+            }
+        }
+        if (options.feed_name === 'metaexchange') {
+            logger.silly({functionName: 'qFeedPollers~metaexchange', running: qMetaExchange.running()})
+            //one poller per datasource at a time please.
+            if ( qMetaExchange.running() < 1 ) {
+                qMetaExchange.push( options )
+            }
+        }
+        if (options.feed_name === 'bitsharesblocks') {
+            logger.silly({functionName: 'qFeedPollers~bitsharesblocks', running: qBitSharesBlocks.running()})
+            //one poller per datasource at a time please.
+            if ( qBitSharesBlocks.running() < 1 ) {
+                qBitSharesBlocks.push( options )
+            }
+        }
+    })
+};
 
-var qPoloniex = async.queue(function (options, callback) { 
+var qPoloniex = async.queue(function (options, callback) {
     logger.silly({functionname: 'qPoloniex', options: options})
     var feed_host = options.feed_host;
     var feed_path = options.feed_path;
@@ -203,9 +238,9 @@ var qPoloniex = async.queue(function (options, callback) {
                 logger.silly(jsonstr)
                 handlePoloniex(jsonstr)
             })
-    })
+        })
     req.end();
-    
+
     setTimeout(function() {
         logger.silly('just be')
         callback()
@@ -242,18 +277,18 @@ function handlePoloniex (newPoloniex) {
     })
 };
 
-var qCcedk = async.queue(function (options, callback) { 
+var qCcedk = async.queue(function (options, callback) {
     logger.silly({functionname: 'qCcedk', options: options})
     var feed_host = options.feed_host;
     var feed_path = options.feed_path;
     var feed_name = options.feed_name;
     var polling_interval_seconds = options.polling_interval_seconds;
-    
+
     var n = require('nonce')();
     queryn = parseInt( n() / 100000 ) ;
-    var feed_query = '?nonce=' + queryn ; 
+    var feed_query = '?nonce=' + queryn ;
     logger.silly({host: feed_host, path: feed_path + feed_query });
-    
+
     var req = https.request({hostname: feed_host, path: feed_path + feed_query, method: 'get' },
         function (response) {
             var jsonstr = '';
@@ -264,9 +299,9 @@ var qCcedk = async.queue(function (options, callback) {
                 logger.silly(jsonstr)
                 handleCcedk(jsonstr)
             })
-    })
+        })
     req.end();
-    
+
     setTimeout(function() {
         logger.silly('just be')
         callback()
@@ -284,38 +319,38 @@ function handleCcedk (newCcedk) {
     //logger.debug({functionname: 'handleCcedk', newCcedk: newCcedk})
     JSON.parse(newCcedk).response.entities.map(function(ccedk) {
         return (
-            {
-                symbol: ccedk.pair_name,
-                raw_value: ccedk.last_price,
-                calc_value: (ccedk.last_price * 1.0).toFixed(5),
-                key: ccedk.pair_name,
-                source: 'ccedk'
-            }
+        {
+            symbol: ccedk.pair_name,
+            raw_value: ccedk.last_price,
+            calc_value: (ccedk.last_price * 1.0).toFixed(5),
+            key: ccedk.pair_name,
+            source: 'ccedk'
+        }
         )
     })
-    .filter(function(price) {
-        return isWhitelisted(price, config.datasources.json_api.ccedk.whitelist )
+        .filter(function(price) {
+            return isWhitelisted(price, config.datasources.json_api.ccedk.whitelist )
         }
     )
-    .filter(function(price) {
-        return notBlacklisted(price, config.datasources.json_api.ccedk.blacklist )
+        .filter(function(price) {
+            return notBlacklisted(price, config.datasources.json_api.ccedk.blacklist )
         }
     )
-    .map(function ( price ) {
-        //logger.debug({handleccedk: price})
-        handlePriceChange(price)
-    })
+        .map(function ( price ) {
+            //logger.debug({handleccedk: price})
+            handlePriceChange(price)
+        })
 };
 
-var qMetaExchange = async.queue(function (options, callback) { 
+var qMetaExchange = async.queue(function (options, callback) {
     logger.silly({functionname: 'qMetaExchange', options: options})
     feed_url = options.feed_url,
-    feed_name = options.feed_name,
-    polling_interval_seconds = options.polling_interval_seconds,
-    request.get(feed_url, function (err, response, body) {
-        if(err) { console.log(err)}
-        handleMetaExchange( body );
-    });
+        feed_name = options.feed_name,
+        polling_interval_seconds = options.polling_interval_seconds,
+        request.get(feed_url, function (err, response, body) {
+            if(err) { console.log(err)}
+            handleMetaExchange( body );
+        });
     setTimeout(function() {
         logger.silly('just be')
         callback()
@@ -333,36 +368,91 @@ function handleMetaExchange (newMetaExchange) {
     logger.silly({functionname: 'handleMetaExchange', newMetaExchange: newMetaExchange})
     JSON.parse(newMetaExchange).map(function(metaexchange) {
         return (
-            {
-                symbol: metaexchange.symbol_pair,
-                btc_per_bts: BTC_PER_BTS,
-                eur_per_bts: EUR_PER_BTS,
-                raw_value: metaexchange.last_price,
-                calc_value: (metaexchange.last_price / BTC_PER_BTS * EUR_PER_BTS).toFixed(5),
-                key: metaexchange.symbol_pair,
-                source: 'metaexchange'
-            }
+        {
+            symbol: metaexchange.symbol_pair,
+            btc_per_bts: BTC_PER_BTS,
+            eur_per_bts: EUR_PER_BTS,
+            raw_value: metaexchange.last_price,
+            calc_value: (metaexchange.last_price / BTC_PER_BTS * EUR_PER_BTS).toFixed(5),
+            key: metaexchange.symbol_pair,
+            source: 'metaexchange'
+        }
         )
     })
-    .filter(function(price) {
-        logger.silly({'handlemetaexchange': price})
-        return isWhitelisted(price, config.datasources.json_api.metaexchange.whitelist )
+        .filter(function(price) {
+            logger.silly({'handlemetaexchange': price})
+            return isWhitelisted(price, config.datasources.json_api.metaexchange.whitelist )
         }
     )
-    .filter(function(price) {
-        return notBlacklisted(price, config.datasources.json_api.metaexchange.blacklist )
+        .filter(function(price) {
+            return notBlacklisted(price, config.datasources.json_api.metaexchange.blacklist )
         }
     )
-    .map(function ( price ) {
-        logger.silly({handlemetaexchange: price})
-        handlePriceChange(price)
-    })
+        .map(function ( price ) {
+            logger.silly({handlemetaexchange: price})
+            handlePriceChange(price)
+        })
 
 };
 
+var qBitSharesBlocks = async.queue(function (options, callback) {
+    logger.silly({functionname: 'qBitSharesBlocks', options: options})
+    feed_url = options.feed_url,
+        feed_name = options.feed_name,
+        polling_interval_seconds = options.polling_interval_seconds,
+        request.get(feed_url, function (err, response, body) {
+            if(err) { console.log(err)}
+            handleBitSharesBlocks( body );
+        });
+    setTimeout(function() {
+        logger.silly('just be')
+        callback()
+    }, polling_interval_seconds * 1000);
+} , 1);
 
+qBitSharesBlocks.drain = function() {
+    logger.silly({functionname: 'qBitSharesBlocks~drain'})
+    if (parseInt(users.length) > 0) {
+        qFeedPollers()
+    }
+}
+
+function handleBitSharesBlocks (newBitSharesBlocks) {
+    logger.silly({functionname: 'handleBitSharesBlocks', newBitSharesBlocks: newBitSharesBlocks})
+    JSON.parse(
+        newBitSharesBlocks
+            .replace(/\\/g, "")
+            .replace(/"{/g, '{')
+            .replace(/}"/g, '}')
+    ).assets.map(function(bsblock) {
+            return (
+            {
+                symbol: bsblock.symbol,
+                btc_per_bts: BTC_PER_BTS,
+                eur_per_bts: EUR_PER_BTS,
+                raw_value: bsblock.price,
+                calc_value: ( bsblock.price / EUR_PER_BTS ).toFixed(5),
+                key: bsblock.symbol,
+                source: 'bitsharesblocks'
+            }
+            )
+        })
+        .filter(function(price) {
+            logger.silly(price)
+            return isWhitelisted(price, config.datasources.json_api.bitsharesblocks.whitelist )
+        }
+    )
+        .filter(function(price) {
+            return notBlacklisted(price, config.datasources.json_api.bitsharesblocks.blacklist )
+        }
+    )
+        .map(function ( price ) {
+            logger.silly({bitsharesblocks: price})
+            handlePriceChange(price)
+        })
+};
 
 var port = process.env.PORT || config.http_port;
-
+qFeedPollers()
 server.listen(port);
 logger.silly('Listening at port ' + config.http_port + ' ...');

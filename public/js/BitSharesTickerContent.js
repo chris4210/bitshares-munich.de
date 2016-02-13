@@ -67,9 +67,9 @@ var BitSharesTickerContent = React.createClass({displayName: "BitSharesTickerCon
             autoplay: true,
             autoplaySpeed: 4000,
             speed: 3500,
-            variableWidth: true,
+            variableWidth: false,
             lazyLoad: true,
-            adaptiveHeight: false
+            adaptiveHeight: true
         };
         var filteredPriceList = this.state.filteredPriceList;
         return (
