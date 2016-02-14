@@ -20,7 +20,12 @@ var BitSharesRosterContent = React.createClass({displayName: "BitSharesRosterCon
             autoplay: true,
             autoplaySpeed: 15000,
             speed: 1000,
-            variableWidth: false
+            variableWidth: false,
+            lazyLoad: true,
+            adaptiveHeight: true,
+            arrows: false,
+            draggable: true,
+            mobileFirst: true
         };
         var teamRoster = this.state.teamRoster;
         return (
