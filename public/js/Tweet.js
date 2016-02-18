@@ -4,7 +4,7 @@ var Tweet = React.createClass({displayName: "Tweet",
     render: function () {
         var tweet=this.props.tweet;
         return (
-            React.createElement("span", {className: "ticker"}, React.createElement("table", null, React.createElement("tr", null, React.createElement("td", null, React.createElement("img", {src: "img/twitter.png"})), React.createElement("td", null, tweet, "  "))))
+            React.createElement("span", {className: "ticker"}, React.createElement("div", null, React.createElement("ul", {className:"tickeritems"}, React.createElement("li", null, React.createElement("img", {src: "img/twitter.png", className:"tickeritems"})),  React.createElement("li", null, tweet, "  "))))
         );
     }
 });

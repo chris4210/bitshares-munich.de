@@ -24,7 +24,7 @@ function *index() {
         http_port: config.http_port,
         http_host: config.http_host,
         twitter_feed_name: config.datasources.twitter.twitter_feed_name,
-        latest_tweet_text: LATEST_TWEET_TEXT,
+        latest_tweet_text: encodeURI(LATEST_TWEET_TEXT) ,
         price_list: JSON.stringify(TICKER_CONTENT),
         team_roster: JSON.stringify(TEAM_ROSTER)
     });

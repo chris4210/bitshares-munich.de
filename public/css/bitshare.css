@@ -23,6 +23,13 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+ul.tickeritems li { display: inline; list-style:none;}
+img.tickeritems {float: left; position: relative; alignment: center;}
+
+a.footer-link:hover {
+    color: #00151c;
+}
+
 body {
     overflow-x: hidden;
  

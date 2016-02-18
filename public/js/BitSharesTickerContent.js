@@ -27,12 +27,13 @@ var BitSharesTickerContent = React.createClass({displayName: "BitSharesTickerCon
         this.setState(newState);
     },
     getInitialState: function() {
-        var tweet = this.props.latest_tweet_text;
+        var tweet = decodeURI(this.props.latest_tweet_text);
         var priceList = JSON.parse(this.props.price_list
             .replace(/\&quot\;/g,'"')
             .replace(/\\/g, "")
             .replace(/"{/g, '{')
             .replace(/}"/g, '}')
+
         );
         
         function notSurpressed(priceitem) {
@@ -67,7 +68,7 @@ var BitSharesTickerContent = React.createClass({displayName: "BitSharesTickerCon
             autoplay: true,
             autoplaySpeed: 15000,
             speed: 1000,
-            variableWidth: false,
+            variableWidth: true,
             lazyLoad: true,
             adaptiveHeight: true,
             arrows: false,
@@ -78,7 +79,7 @@ var BitSharesTickerContent = React.createClass({displayName: "BitSharesTickerCon
         var filteredPriceList = this.state.filteredPriceList;
         return (
                 React.createElement(Slider, React.__spread({},  settings), 
-                    React.createElement("div", {key: this.state.tweet}, React.createElement(Tweet, {tweet: this.state.tweet}), "  "), 
+                    React.createElement("div", {key: this.state.tweet}, React.createElement(Tweet, {tweet: this.state.tweet}), "  "),
                     React.createElement("div", {key: this.state.lastupdate}, React.createElement(Timestamp, {lastupdate: this.state.lastupdate}), "  "), 
                     
                         filteredPriceList.map( function (priceitem) {
@@ -92,7 +93,7 @@ var BitSharesTickerContent = React.createClass({displayName: "BitSharesTickerCon
                                     label: priceitem.label, 
                                     calc_value: priceitem.calc_value, 
                                     raw_value: priceitem.raw_value, 
-                                    width: priceitem.width, 
+                                    width: priceitem.width,
                                     align: priceitem.align}
                                 )
                                 )
