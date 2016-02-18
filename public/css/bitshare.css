@@ -28,7 +28,14 @@ img.tickeritems {float: left; position: relative; alignment: center;}
 
 a.footer-link:hover {
     color: #00151c;
+    font-size: 10px;
+    font-weight: bold;
 }
+a.footer-link {
+    color:#0087be;
+    font-size: 10px; font-weight: bold;
+}
+p.footer-text {color:#0087be; font-size: 10px; }
 
 body {
     overflow-x: hidden;
