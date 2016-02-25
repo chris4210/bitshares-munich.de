@@ -1,7 +1,7 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 var http = require('http');
 var https = require('follow-redirects').https;
-var request = require('request')
+var request = require('request');
 var koa = require('koa');
 var app = koa();
 var route = require('koa-route');
@@ -70,28 +70,28 @@ function updatePriceList (newPrice) {
         if ( newPrice.key === 'EUR') {
             if (newPrice.raw_value > 0) {
                 if(newPrice.raw_value !== EUR_PER_BTS) {
-                    EUR_PER_BTS = newPrice.raw_value
-                    logger.silly({EUR_PER_BTS: EUR_PER_BTS})
+                    EUR_PER_BTS = newPrice.raw_value;
+                    logger.silly({EUR_PER_BTS: EUR_PER_BTS});
                 }
             }
         }
         if ( newPrice.key === 'BTC') {
             if (newPrice.raw_value > 0) {
                 if(newPrice.raw_value !== BTC_PER_BTS) {
-                    BTC_PER_BTS = newPrice.raw_value
-                    logger.silly({BTC_PER_BTS: BTC_PER_BTS})
+                    BTC_PER_BTS = newPrice.raw_value;
+                    logger.silly({BTC_PER_BTS: BTC_PER_BTS});
                 }
             }
         }
         if ( priceline.key === newPrice.key ) {
             if ( priceline.calc_value !== newPrice.calc_value ) {
-                logger.silly({updatepricelist: priceline.key})
+                logger.silly({updatepricelist: priceline.key});
                 newPriceLine = priceline;
                 newPriceLine.key = newPrice.key;
                 newPriceLine.raw_value = newPrice.raw_value;
                 newPriceLine.calc_value = newPrice.calc_value;
-                TICKER_CONTENT.push(newPriceLine)
-                TICKER_CONTENT = TICKER_CONTENT.filter( selectDistinct )
+                TICKER_CONTENT.push(newPriceLine);
+                TICKER_CONTENT = TICKER_CONTENT.filter( selectDistinct );
             }
         }
     })
@@ -123,8 +123,8 @@ setInterval( function twitterpoller() {
     twitterclient.get('statuses/user_timeline', params, function(error, tweets, response){
         if(error) {logger.debug(error)}
         if (!error) {
-            LATEST_TWEET_TEXT = tweets[0].text
-            io.emit('tweet', tweets[0].text)
+            LATEST_TWEET_TEXT = tweets[0].text;
+            io.emit('tweet', tweets[0].text);
         }
     });
 }, parseInt( config.datasources.twitter.poll_delay_seconds * 1000) )
@@ -142,7 +142,7 @@ io.sockets.on('connection', function (socket) {
     })
     if(users.indexOf(socket) === -1) {
         users.push(socket);
-        logger.silly({usercount: users.length})
+        logger.silly({usercount: users.length});
     }
 });
 
@@ -194,7 +194,7 @@ function qFeedPollers() {
             //one poller per datasource at a time please.
             if ( qPoloniex.running() < 1 ) {
                 // download section line 221 doesn't work yet, so disabled here
-                qPoloniex.push( options )
+                qPoloniex.push( options );
             }
         }
         if (options.feed_name === 'ccedk') {
@@ -202,21 +202,21 @@ function qFeedPollers() {
             //one poller per datasource at a time please.
             if ( qCcedk.running() < 1 ) {
                 // download section line 221 doesn't work yet, so disabled here
-                qCcedk.push( options )
+                qCcedk.push( options );
             }
         }
         if (options.feed_name === 'metaexchange') {
             logger.silly({functionName: 'qFeedPollers~metaexchange', running: qMetaExchange.running()})
             //one poller per datasource at a time please.
             if ( qMetaExchange.running() < 1 ) {
-                qMetaExchange.push( options )
+                qMetaExchange.push( options );
             }
         }
         if (options.feed_name === 'bitsharesblocks') {
             logger.silly({functionName: 'qFeedPollers~bitsharesblocks', running: qBitSharesBlocks.running()})
             //one poller per datasource at a time please.
             if ( qBitSharesBlocks.running() < 1 ) {
-                qBitSharesBlocks.push( options )
+                qBitSharesBlocks.push( options );
             }
         }
     })
@@ -236,28 +236,28 @@ var qPoloniex = async.queue(function (options, callback) {
                 jsonstr += chunk;
             });
             response.on('end', function () {
-                logger.silly(jsonstr)
-                handlePoloniex(jsonstr)
+                logger.silly(jsonstr);
+                handlePoloniex(jsonstr);
             })
         })
     req.end();
 
     setTimeout(function() {
-        logger.silly('just be')
-        callback()
+        logger.silly('just be');
+        callback();
     }, polling_interval_seconds * 1000);
 } , 1);
 
 qPoloniex.drain = function() {
-    logger.silly({functionname: 'qPoloniex~drain'})
+    logger.silly({functionname: 'qPoloniex~drain'});
     if (parseInt(users.length) > 0) {
-        qFeedPollers()
+        qFeedPollers();
     }
 }
 
 function handlePoloniex (newPoloniex) {
-    logger.silly({functionname: 'handlePoloniex', newPoloniex: newPoloniex})
-    poloniexObj = JSON.parse((newPoloniex))
+    logger.silly({functionname: 'handlePoloniex', newPoloniex: newPoloniex});
+    poloniexObj = JSON.parse((newPoloniex));
     poloniexProps = Object.getOwnPropertyNames(poloniexObj);
     async.map(poloniexProps, function(poloniexSymbol) {
         logger.silly(poloniexSymbol + '*****' +  JSON.stringify(poloniexObj[poloniexSymbol]));
@@ -272,7 +272,7 @@ function handlePoloniex (newPoloniex) {
         logger.silly(price);
         if(isWhitelisted(price, config.datasources.json_api.poloniex.whitelist)) {
             if(notBlacklisted(price, config.datasources.json_api.poloniex.blacklist)) {
-                handlePriceChange(price)
+                handlePriceChange(price);
             }
         }
     })
@@ -297,22 +297,22 @@ var qCcedk = async.queue(function (options, callback) {
                 jsonstr += chunk;
             });
             response.on('end', function () {
-                logger.silly(jsonstr)
-                handleCcedk(jsonstr)
-            })
+                logger.silly(jsonstr);
+                handleCcedk(jsonstr);
+            });
         })
     req.end();
 
     setTimeout(function() {
-        logger.silly('just be')
-        callback()
+        logger.silly('just be');
+        callback();
     }, polling_interval_seconds * 1000);
 } , 1);
 
 qCcedk.drain = function() {
-    logger.silly({functionname: 'qCcedk~drain'})
+    logger.silly({functionname: 'qCcedk~drain'});
     if (parseInt(users.length) > 0) {
-        qFeedPollers()
+        qFeedPollers();
     }
 }
 
@@ -330,16 +330,16 @@ function handleCcedk (newCcedk) {
         )
     })
         .filter(function(price) {
-            return isWhitelisted(price, config.datasources.json_api.ccedk.whitelist )
+            return isWhitelisted(price, config.datasources.json_api.ccedk.whitelist );
         }
     )
         .filter(function(price) {
-            return notBlacklisted(price, config.datasources.json_api.ccedk.blacklist )
+            return notBlacklisted(price, config.datasources.json_api.ccedk.blacklist );
         }
     )
         .map(function ( price ) {
             //logger.debug({handleccedk: price})
-            handlePriceChange(price)
+            handlePriceChange(price);
         })
 };
 
@@ -349,19 +349,19 @@ var qMetaExchange = async.queue(function (options, callback) {
         feed_name = options.feed_name,
         polling_interval_seconds = options.polling_interval_seconds,
         request.get(feed_url, function (err, response, body) {
-            if(err) { console.log(err)}
+            if(err) { console.log(err);}
             handleMetaExchange( body );
         });
     setTimeout(function() {
-        logger.silly('just be')
-        callback()
+        logger.silly('just be');
+        callback();
     }, polling_interval_seconds * 1000);
 } , 1);
 
 qMetaExchange.drain = function() {
     logger.silly({functionname: 'qMetaExchange~drain'})
     if (parseInt(users.length) > 0) {
-        qFeedPollers
+        qFeedPollers();
     }
 }
 
@@ -391,7 +391,7 @@ function handleMetaExchange (newMetaExchange) {
     )
         .map(function ( price ) {
             logger.silly({handlemetaexchange: price})
-            handlePriceChange(price)
+            handlePriceChange(price);
         })
 
 };
@@ -406,15 +406,15 @@ var qBitSharesBlocks = async.queue(function (options, callback) {
             handleBitSharesBlocks( body );
         });
     setTimeout(function() {
-        logger.silly('just be')
-        callback()
+        logger.silly('just be');
+        callback();
     }, polling_interval_seconds * 1000);
 } , 1);
 
 qBitSharesBlocks.drain = function() {
     logger.silly({functionname: 'qBitSharesBlocks~drain'})
     if (parseInt(users.length) > 0) {
-        qFeedPollers()
+        qFeedPollers();
     }
 }
 
