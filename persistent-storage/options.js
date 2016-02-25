@@ -17,9 +17,9 @@ module.exports= {
     ], 
     datasources:{
         json_api: {
-/*            bitsharesblocks: {
+              bitsharesblocks: {
                 feed_name: 'bitsharesblocks',
-                feed_url: '',
+                feed_url: 'https://cryptofresh.com/api/cmc',
                 polling_interval_seconds: 7,
                 instructions: 'these are priced in bitshares, must take value from source and divide by BTS/EUR',
                 whitelist: [
@@ -63,7 +63,7 @@ module.exports= {
                     'SERVICE',
                     'BTCSHA'
                 ]
-            },*/
+            },
             metaexchange: {
                 feed_name: 'metaexchange',
                 feed_url: 'http://metaexchange.info/api/1/getAllMarkets',

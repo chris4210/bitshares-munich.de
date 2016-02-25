@@ -12,6 +12,7 @@ var path = require('path');
 var logger = require('winston');
 var render = views(__dirname + '/views', { map: { html: 'swig' }});
 
+
 var async = require('async');
 
 logger.level = config.winston_log_level;
@@ -453,6 +454,11 @@ function handleBitSharesBlocks (newBitSharesBlocks) {
 };
 
 var port = process.env.PORT || config.http_port;
-qFeedPollers()
+qFeedPollers();
 server.listen(port);
 logger.silly('Listening at port ' + config.http_port + ' ...');
+
+
+
+
+
