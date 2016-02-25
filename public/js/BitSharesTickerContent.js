@@ -63,17 +63,17 @@ var BitSharesTickerContent = React.createClass({displayName: "BitSharesTickerCon
         var settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 5,
+            slidesToShow: 7,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 1000,
-            speed: 800,
+            autoplaySpeed: 5000,
+            speed: 1000,
             variableWidth: true,
             lazyLoad: false,
             adaptiveHeight: true,
             arrows: false,
             draggable: true,
-            mobileFirst: true
+            mobileFirst: false
 
         };
         var filteredPriceList = this.state.filteredPriceList;
