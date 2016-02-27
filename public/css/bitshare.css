@@ -4,6 +4,37 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+img.cart {max-height: 18px;}
+.modal-backdrop {
+    opacity: 100 !important;
+    background: url("../img/bg-tiles.png") repeat scroll 0 0 !important;
+}
+
+.container_nav
+{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+@media (min-width: 768px) {
+    .container_nav {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container_nav {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container_nav {
+        width: 1170px;
+    }
+}
+
 .foot-header {
     padding-bottom: 20px;
     text-shadow: 1px 1px 0 #ffffff;
@@ -276,7 +307,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-toggle:focus {
     background-color: #00a9e0;
 }
-
+.navbar-default .nav li{padding-left: 3px; padding-right: 3px;}
 .navbar-default .nav li a {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -288,19 +319,32 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
     outline: 0;
+    border-radius: 3px;
     color: #8ab426;
+    background-color: rgba(216, 216, 216, 0.5);
 }
 
 .navbar-default .navbar-nav>.active>a {
-    border-radius: 0;
+    border-radius: 3px;
     color: #fff;
-    background-color: #00a9e0;
+    background-color: #8ab426;
+}
+
+.navbar-default .navbar-nav>.active>a.cart {
+    border-radius: 3px;
+    color: #fff;
+
+    background-color: #8ab426;
+}
+
+.navbar-default .navbar-nav>.active>a>img.cart {
+    filter: grayscale(1) brightness(2);
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
     color: #fff;
-    background-color: #00a9e0;
+     background-color: #9fc926;
 }
 
 @media(min-width:768px) {
@@ -822,6 +866,10 @@ section#contact .text-danger {
 footer {
     padding: 25px 0;
     text-align: center;
+}
+
+img.logo:hover {
+    transform: scale(1.2);
 }
 
 footer span.copyright {

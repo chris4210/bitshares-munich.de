@@ -2,82 +2,178 @@
 <!-- Store Section -->
 <section id="store" class="bg-light-gray">
     <div class="container">
-<table>
-<tr>
-<td width="20%" valign=top>
-<script src="js/accordionmenu.js"></script>
-<nav id="acdnmenu" ken="http://www.menucool.com/vertical/accordion-menu">
-	<ul>
-		<li><img src="img/cart.png" height=14 border=0> Shop (all)
-			<ul>
-				<li>BitShares POS
-					<ul>
-						<li><a href="#">Configure a System</a></li>
-						<li><a href="#">Download the App</a></li>
-					</ul>
-				</li>
-				<li>Crypto Coaching
-					<ul>
-						<li><a href="#">Christoph Hering</a></li>
-						<li><a href="#">Michael Ep</a></li>
-						<li><a href="#">ken Code</a></li>
-					</ul>
-				</li>
-				<li>Goodies
-					<ul>
-					<li>Cold Storage
-					<ul>
-						<li><a href="#">Keyfob</a></li>
-						<li><a href="#">Wallet Card</a></li>
-					</ul>
-					</li>
-					<li>QR Wearables
-					<ul>
-						<li><a href="#">Bracelet</a></li>
-						<li><a href="#">Henna Tattoo</a></li>
-						<li><a href="#">Keychain</a></li>
-						<li><a href="#">Necklace</a></li>
-					</ul>
-					</li>
-					</ul>
-				</li>
-				<li>Hats
-					<ul>
-						<li><a href="#">Baseball</a></li>
-						<li><a href="#">Beanie</a></li>
-					</ul>
-				</li>
-				<li>Shirts
-					<ul>
-					<li>Casual
-					<ul>
-						<li><a href="#">Mens</a></li>
-						<li><a href="#">Womens</a></li>
-						<li><a href="#">Kids</a></li>
-					</ul>
-					</li>
-					<li>Formal
-					<ul>
-						<li><a href="#">Mens</a></li>
-						<li><a href="#">Womens</a></li>
-						<li><a href="#">Kids</a></li>
-					</ul>
-					</li>
-					</ul>
-				</li>
-				<li>Smartcards
-					<ul>
-						<li><a href="#">In Europe</a></li>
-						<li><a href="#">Outside Europe</a></li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-	</ul>
-</nav>
-</td>
-<td width="80%" valign=top>The store product photos, descriptions, options and checkout will go on this side.</td>
-</tr>
-</table>
+		<div id="store_render"></div>
     </div>
 </section>
+<script>
+	var accordion = React.createElement(AccordionNode, {className: "main", expanded: true},
+			React.createElement("div", {className: "title"},
+					React.createElement("img", {src: "img/cart.png", alt: "cart", className: "cart"}),
+					React.createElement("strong", null, "Smartcoin Shop")
+			),
+			React.createElement("div", {className: "content"},
+					React.createElement(AccordionNode, {expanded: true},
+							React.createElement("div", {className: "title"}, "BitShares POS"),
+							React.createElement("div", {className: "content"},
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "Configure a System")
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "Download the App")
+											)
+									)
+							)
+					),
+					React.createElement(AccordionNode, null,
+							React.createElement("div", {className: "title"}, "Crypto Coaching"),
+							React.createElement("div", {className: "content"},
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "Christoph Hering")
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "Michael Ep")
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "ken Code")
+											)
+									)
+							)
+					),
+					React.createElement(AccordionNode, null,
+							React.createElement("div", {className: "title"}, "Goodies"),
+							React.createElement("div", {className: "content"},
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "BTSMUC Expo Exhibitors")
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title"}, "Cold Storage"),
+											React.createElement("div", {className: "content"},
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Keyfob")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Wallet Card")
+															)
+													)
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title"}, "QR Wearables"),
+											React.createElement("div", {className: "content"},
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Bracelet")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Henna Tattoo")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Keychain")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Necklace")
+															)
+													)
+											)
+									)
+							)
+					),
+					React.createElement(AccordionNode, null,
+							React.createElement("div", {className: "title"}, "Hats"),
+							React.createElement("div", {className: "content"},
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "Baseball")
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "Beanie")
+											)
+									)
+							)
+					),
+					React.createElement(AccordionNode, null,
+							React.createElement("div", {className: "title"}, "Shirts"),
+							React.createElement("div", {className: "content"},
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title"}, "Casual"),
+											React.createElement("div", {className: "content"},
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Mens")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Womens")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Kids")
+															)
+													)
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title"}, "Formal"),
+											React.createElement("div", {className: "content"},
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Mens")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Womens")
+															)
+													),
+													React.createElement(AccordionNode, null,
+															React.createElement("div", {className: "title leaf"},
+																	React.createElement("a", {href: "#"}, "Kids")
+															)
+													)
+											)
+									)
+							)
+					),
+					React.createElement(AccordionNode, null,
+							React.createElement("div", {className: "title"}, "Smartcards"),
+							React.createElement("div", {className: "content"},
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "In Europe")
+											)
+									),
+									React.createElement(AccordionNode, null,
+											React.createElement("div", {className: "title leaf"},
+													React.createElement("a", {href: "#"}, "Outside Europe")
+											)
+									)
+							)
+					)
+			)
+	)
+
+	ReactDOM.render(accordion, document.getElementById('store_render'));
+</script>

@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% block bodyonload %}onload=socketconnect(){% endblock %}
+{% block bodyonload %} id=page-top onload=socketconnect() data-target=#navspy data-spy=scroll {% endblock %}
 {% block bodycontent %}
     {% include 'partials/body-menu.html' %}
     {% include 'partials/script-bitshares-stream.html' %}
