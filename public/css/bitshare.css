@@ -259,6 +259,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 
+
 .navbar-brand>img {
         max-height: 100%; /* resize DOWN to height of container which is set to 50px */
         height: 100%; /* resize UP to fit*/

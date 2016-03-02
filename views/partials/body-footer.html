@@ -60,10 +60,10 @@
                 </div>
 
             </footer>
-    <div class="container text-center">
+    <div class="container">
 
         <!-- Button trigger modal -->
-        <p class="text-muted credit footer-text">© 2016 BitShares Munich. <a class="footer-link" data-toggle="modal" href="#terms" aria-expanded="false" aria-controls="collapseExample">Terms of use.</a></p>
+        <p class="text-muted credit footer-text text-center pull-left">© 2016 BitShares Munich. <a class="footer-link" data-toggle="modal" href="#terms" aria-expanded="false" aria-controls="collapseExample">Terms of use.</a></p><p class="text-muted credit footer-text pull-right">Design by <a class="footer-link" href="https://about.me/poqdavid" alt="poqdavid">poqdavid</a></p>
         <!-- Modal -->
     </div>
 
@@ -154,7 +154,7 @@
         </div>
     </div>
 </div>
-<script>		var lang = new React.LS('en_US');
+<script>var lang = new React.LS('en_US');
 
 lang.ready(function () {
     //List of languages
@@ -188,7 +188,6 @@ lang.ready(function () {
          },*/
     ];
     //main part for loading language selector ui
-
     ReactDOM.render(React.createElement(lang.UI, {
         items: rlsui_languages,
         selectedLang: window.lang.currentLang(),
@@ -199,12 +198,10 @@ lang.ready(function () {
 });</script>
 
 <!-- Bootstrap Core JavaScript -->
-<script type="application/javascript" src="js/bootstrap-native.js"></script>
+<script type="application/javascript" src="js/bootstrap-native.min.js"></script>
 
 <script>
-
     smoothScroll.init();
-
 
     // google analytics:
     (function (i, s, o, g, r, a, m) {
