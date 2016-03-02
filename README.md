@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BitShares Ticker
  
 We're almost done with it! 
@@ -43,3 +44,7 @@ blacklist and/or whitelist the assets you wish to display in the ticker.  The li
 or this   
 ```supervisor --harmony app.js```
 
+=======
+# BitShares-Munich.de
+Our website files will go here
+>>>>>>> c5fcb36cd69dae084f02d7682357e764243f1eca
