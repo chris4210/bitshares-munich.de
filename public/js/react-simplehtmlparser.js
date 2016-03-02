@@ -1,7 +1,7 @@
-/*! @license React-SimpleHtmlParser - v1.1.0 - 2015-10-19
+/*! @license React-SimpleHtmlParser - v1.1.0 - 2016-03-02
  * https://github.com/poqdavid/react-simplehtmlparser/
  *
- * Copyright (c) 2015 poqdavid;
+ * Copyright (c) 2016 poqdavid;
  * Licensed under the MIT license */
 
 React.SHP = (function () {

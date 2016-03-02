@@ -2,6 +2,6 @@
 <script src="js/BitSharesRosterContent.js"></script>
 <script src="js/RosterItem.js"></script>
 <script>
-var bitsharesroster = React.createElement(BitSharesRoster, team_roster="{{ team_roster }}");
-ReactDOM.render(bitsharesroster, document.getElementById('bitsharesroster'))
+    var bitsharesroster = React.createElement(BitSharesRoster, team_roster = "{{ team_roster }}");
+    ReactDOM.render(bitsharesroster, document.getElementById('bitsharesroster'))
 </script>
