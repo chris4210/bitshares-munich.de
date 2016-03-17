@@ -1,17 +1,12 @@
 {% extends 'layout.html' %}
-{% block bodyonload %} id=page-top onload=socketconnect() data-target=#navspy data-spy=scroll {% endblock %}
+{% block bodyonload %} id=page-top data-target=#navspy data-spy=scroll {% endblock %}
 {% block bodycontent %}
     {% include 'partials/body-menu.html' %}
-    {% include 'partials/script-bitshares-stream.html' %}
-    {% include 'partials/script-bitshares-ticker.html' %}
-    {% include 'partials/body-youtube-video.html' %}
-    {% include 'partials/body-pos.html' %}
-    {% include 'partials/body-smartcard.html' %}
-    {% include 'partials/body-store.html' %}
-    {% include 'partials/body-exchange.html' %}
-    {% include 'partials/body-roster.html' %}
-    {% include 'partials/script-bitshares-roster.html' %}
-    {% include 'partials/body-expo2016.html' %}
+    {% include 'partials/body-header.html' %}
+    {% include 'partials/body-wallets.html' %}
+    {% include 'partials/body-smartcoins.html' %}
+    {% include 'partials/body-merchants.html' %}
+    {% include 'partials/body-acceptsmartcoins.html' %}
     {% include 'partials/body-footer.html' %}
 	{% include 'partials/body-bootstrap.html' %}
 {% endblock %}

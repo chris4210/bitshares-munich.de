@@ -163,7 +163,8 @@
 </div>
 
 <!-- React Language Selector -->
-<script>var lang = new React.LS('en_US');
+<script>
+    var lang = new React.LS('en_US');
 
 lang.ready(function () {
     //List of languages
@@ -200,6 +201,7 @@ lang.ready(function () {
     ReactDOM.render(React.createElement(lang.UI, {
         items: rlsui_languages,
         selectedLang: window.lang.currentLang(),
+        showFlag: false,
         onLanguageChanged: function (rlsui_lang) {
             lang.set_load_lang(rlsui_lang.id, rlsui_lang.langfile);
         }
@@ -211,17 +213,9 @@ lang.ready(function () {
     smoothScroll.init();
 
     // google analytics:
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-58147431-2', 'auto');
     ga('send', 'pageview');
+
 </script>
+<script async src='//www.google-analytics.com/analytics.js'></script>

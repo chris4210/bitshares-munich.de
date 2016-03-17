@@ -23,15 +23,11 @@ function *index() {
     this.body = yield render('index' , {
         app_title: config.app_title,
         http_port: config.http_port,
-        http_host: config.http_host,
-        twitter_feed_name: config.datasources.twitter.twitter_feed_name,
-        latest_tweet_text: encodeURI(LATEST_TWEET_TEXT) ,
-        price_list: JSON.stringify(TICKER_CONTENT),
-        team_roster: JSON.stringify(TEAM_ROSTER)
+        http_host: config.http_host
     });
 };
 
-function *oldindex() {
+/*function *oldindex() {
     this.body = yield render('oldindex' , {
         app_title: config.app_title,
         http_port: config.http_port,
@@ -95,16 +91,16 @@ function updatePriceList (newPrice) {
             }
         }
     })
-};
+};*/
 
 app.use(route.get('/', index));
-app.use(route.get('/oldindex', oldindex));
+//app.use(route.get('/oldindex', oldindex));
 
 var users = [];
 var server = http.createServer(app.callback());
 var io = require('socket.io')(server);
 
-var LATEST_TWEET_TEXT = '';
+/*var LATEST_TWEET_TEXT = '';
 var Twitter = require('twitter')
 logger.silly('init twitter');
 var twitterclient = new Twitter({
@@ -451,10 +447,10 @@ function handleBitSharesBlocks (newBitSharesBlocks) {
             logger.silly({bitsharesblocks: price})
             handlePriceChange(price)
         })
-};
+};*/
 
 var port = process.env.PORT || config.http_port;
-qFeedPollers();
+//qFeedPollers();
 server.listen(port);
 logger.silly('Listening at port ' + config.http_port + ' ...');
 
