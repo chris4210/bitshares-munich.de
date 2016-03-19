@@ -1,2 +1,2 @@
 # BitShares-Munich.de
-Our website files will go here
+Our website files go here
