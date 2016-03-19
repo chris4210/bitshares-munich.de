@@ -265,11 +265,25 @@ fieldset[disabled] .btn-xl.active {
           object-fit: contain; /* Resize down to fit container */
 
 }
- 
+
 .navbar-default {
     border-color: transparent;
-    background-color: rgba(216, 216, 216, 0.4);
-	
+    background-color: rgba(216, 216, 216, 0.85);
+
+}
+
+
+@media (max-width: 768px) {
+
+    .fix-li-menu {
+        height: auto;
+        width:auto;
+        max-height: 100%;
+        max-width: 100%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 .navbar-default .navbar-brand {
@@ -364,10 +378,13 @@ fieldset[disabled] .btn-xl.active {
         border-radius: 3px;
     }
 
+
     .navbar-default.navbar-shrink {
         padding: 10px 0;
         background-color: rgba(195, 195, 195, 0.4);
     }
+
+
 
     .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
