@@ -1,3 +1,18 @@
+
+
+/*.liststyle1 ul li:hover {
+
+	-moz-transform:rotate(-5deg); -moz-box-shadow:10px 10px 20px #000000;
+	-webkit-transform:rotate(-5deg); -webkit-box-shadow:10px 10px 20px #000000;
+	transform:rotate(-5deg); box-shadow:10px 10px 20px #000000; }*/
+
+.liststyle1 ul {
+list-style: none!important;
+list-style-image: url("../img/checkmark.svg") !important;
+	list-style-position: outside!important;
+}
+
+
 html {
 	background: #ffffff url(../img/bg-tiles.png);
 }
@@ -309,17 +324,7 @@ img.slider {
 	   -moz-border-radius: 14px;
 	        border-radius: 14px;
 }
-img.top2, img.bottom2 {
-	-webkit-border-radius: 14px;
-	   -moz-border-radius: 14px;
-	        border-radius: 14px;
-}
-img.top, img.bottom {
-	border: 1px solid #00587c;
-	-webkit-border-radius: 14px;
-	   -moz-border-radius: 14px;
-	        border-radius: 14px;
-}
+
 
 div.press {
 	display: flex;
@@ -336,21 +341,33 @@ img.press:hover {
 	font-size: 10pt;
 }
 
-#cf {
-	position:relative;
-	width:320px;
-	height:200px;
-	margin:0 auto;
+
+img.top, img.bottom {
+	-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;
+	border-radius: 14px;
 }
-#cf img {
+
+.flexrow {
+	display: flex;
+}
+.fullcenter{
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.bottom_top img {
 	position:absolute;
-	left:0;
+
 	-webkit-transition: opacity 0.2s ease-in-out;
 	   -moz-transition: opacity 0.2s ease-in-out;
 	     -o-transition: opacity 0.2s ease-in-out;
 	        transition: opacity 0.2s ease-in-out;
+
+
 }
-#cf img.top:hover, img.top2:hover {
+.bottom_top img.top:hover {
 	opacity:0;
 }
 
