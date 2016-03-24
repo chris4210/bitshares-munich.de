@@ -7,8 +7,8 @@
 	transform:rotate(-5deg); box-shadow:10px 10px 20px #000000; }*/
 
 .liststyle1 ul {
-list-style: none!important;
-list-style-image: url("../img/checkmark.svg") !important;
+list-style:  url(/img/checkmark.png);
+list-style-image: url(/img/checkmark.png);
 	list-style-position: outside!important;
 }
 
@@ -351,6 +351,7 @@ img.top, img.bottom {
 .flexrow {
 	display: flex;
 }
+
 .fullcenter{
 
 	top: 50%;
