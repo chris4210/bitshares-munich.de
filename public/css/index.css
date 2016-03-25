@@ -353,10 +353,16 @@ img.top, img.bottom {
 }
 
 .fullcenter{
-
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.fullcenter-text{
+	padding-top: 50%;
+	padding-bottom: 50%;
+	top: 50%;
+	left: 50%;
 }
 .bottom_top img {
 	position:absolute;
