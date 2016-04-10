@@ -350,28 +350,35 @@ img.top, img.bottom {
 
 .flexrow {
 	display: flex;
+	display:-ms-flexbox;
+	display:-webkit-box;
 }
 
 .fullcenter{
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	top: 50% !important;
+	left: 50% !important;
+	transform: translate(-50%, -50%) !important;
+	align-items: center
+
 }
 
-.fullcenter-text{
-	padding-top: 50%;
-	padding-bottom: 50%;
-	top: 50%;
-	left: 50%;
+.flexrow-fullcenter-text{
+	display: flex;
+	justify-content:center;
+	align-content:center;
+	flex-direction:column; /* column | row */
+}
+.absolute-center {
+
+
+	margin: auto; /* Center the item vertically & horizontally */
+    position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0; /* Set the bounds in which to center it, relative to its parent/container */
 }
 
-.fullcenter-img{
-	position:  relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
-	}
+.isleft{ margin-left: 50%; float: left;}
+.isright{margin-left: 25%;}
+
 .bottom_top img {
 	position:absolute;
 
