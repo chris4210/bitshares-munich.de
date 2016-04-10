@@ -365,7 +365,7 @@ img.top, img.bottom {
 	left: 50%;
 }
 
-.fullcenter img{
+.fullcenter-img{
 	position:  relative;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
