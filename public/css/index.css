@@ -364,6 +364,14 @@ img.top, img.bottom {
 	top: 50%;
 	left: 50%;
 }
+
+.fullcenter img{
+	position:  relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	}
 .bottom_top img {
 	position:absolute;
 
