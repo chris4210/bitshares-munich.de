@@ -20,6 +20,7 @@
 {"lang":"en_US","elem":"//*[@id='exchanges_lang2']","text":"Converting your old money to cryptocurrency is easy. Just choose an Exchange."},
 {"lang":"en_US","elem":"//*[@id='merchants_lang1']","text":"Spend some Smartcoins"},
 {"lang":"en_US","elem":"//*[@id='merchants_lang2']","text":"Merchants who accept Smartcoins say Hello to new customers!"},
+{"lang":"en_US","elem":"//*[@id='merchants_lang3']","text":"Contact us to have your business listed too!"},
 {"lang":"en_US","elem":"//*[@id='acceptsmart_lang1']","text":"Accept Smartcoins & Altcoins"},
 {"lang":"en_US","elem":"//*[@id='acceptsmart_lang2_1']","text":"It’s FREE to accept cryptocurrencies. Your customers pay the small network fee, so all you need is an old"},
 {"lang":"en_US","elem":"//*[@id='acceptsmart_lang2_2']","text":"the free “Smartcoins POS” app for"},
