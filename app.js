@@ -19,17 +19,15 @@ app.set('views', __dirname + '/views');
 
 app.set('view cache', false);
 
-swig.setDefaults({ cache:  'memory'  });
-
+swig.setDefaults({cache: 'memory'});
 
 app.get('/', function (req, res) {
-    res.render('index' , {
-         app_title: config.app_title,
-         http_port: config.http_port,
-         http_host: config.http_host
-     });
+    res.render('index', {
+        app_title: config.app_title,
+        http_port: config.http_port,
+        http_host: config.http_host
+    });
 });
-
 
 var port = process.env.PORT || config.http_port;
 app.listen(port);
