@@ -87,7 +87,7 @@
     "unpipe": "^1.0.0",
     "winston": "^1.1.2",
     "ws": "^1.0.1",
-	"accepts": "~1.2.12",ddddd
+	"accepts": "~1.2.12",
     "array-flatten": "1.1.1",
     "content-disposition": "0.5.1",
     "content-type": "~1.0.1",
