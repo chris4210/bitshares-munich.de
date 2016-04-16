@@ -27,8 +27,8 @@
   {"lang":"de_DE","elem":"//*[@id='acceptsmart_lang2_3']","text":"oder"},
   {"lang":"de_DE","elem":"//*[@id='acceptsmart_lang2_4']","text":"herunter. Wir empfehlen auch ein"},
   {"lang":"de_DE","elem":"//*[@id='acceptsmart_lang2_5']","text":"und"},
-  {"lang":"de_DE","elem":"//*[@id='footer_lang1']","text":"BITSHARES München"},
-  {"lang":"de_DE","elem":"//*[@id='footer_lang2']","text":"BITSHARES"},
+  {"lang":"de_DE","elem":"//*[@id='footer_lang1']","text":"BitShares Munich"},
+  {"lang":"de_DE","elem":"//*[@id='footer_lang2']","text":"BitShares"},
   {"lang":"de_DE","elem":"//*[@id='footer_lang3']","text":"Konto Eröffnen"},
   {"lang":"de_DE","elem":"//*[@id='footer_lang4']","text":"Smartcoins kaufen"},
   {"lang":"de_DE","elem":"//*[@id='footer_lang5']","text":"Mit Smartcoins bezahlen"},
@@ -40,7 +40,7 @@
   {"lang":"de_DE","elem":"//*[@id='footer_lang11']","text":"Wallets"},
   {"lang":"de_DE","elem":"//*[@id='footer_lang12']","text":"Händler"},
   {"lang":"de_DE","elem":"//*[@id='footer_lang13']","text":"Meetups"},
-  {"lang":"de_DE","elem":"//*[@id='footer_lang14']","text":"© 2016 BitShares München."},
+  {"lang":"de_DE","elem":"//*[@id='footer_lang14']","text":"© 2016 BitShares Munich."},
   {"lang":"de_DE","elem":"//*[@id='footer_lang15']","text":"Impressum."},
   {"lang":"de_DE","elem":"//*[@id='footer_lang16']","text":"Design durch"}
 ]
