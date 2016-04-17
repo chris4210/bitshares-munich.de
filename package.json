@@ -7,6 +7,10 @@
   },
   "description": "Price and news feed for the BitShares community",
   "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
   "author": {
     "name": "poqdavid",
     "url": "about.me/poqdavid"
