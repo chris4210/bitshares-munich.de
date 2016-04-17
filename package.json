@@ -1,9 +1,16 @@
 {
   "name": "bitshares-ticker",
   "version": "1.0.0",
+  "engines": {
+    "node": "5.x",
+    "npm": "3.x"
+  },
   "description": "Price and news feed for the BitShares community",
   "main": "app.js",
-  "author": "",
+  "author": {
+    "name": "poqdavid",
+    "url": "about.me/poqdavid"
+  },
   "license": "ISC",
   "dependencies": {
     "camelcase": "^1.2.1",
@@ -17,6 +24,7 @@
     "uglify-to-browserify": "^1.0.2",
     "window-size": "^0.1.0",
     "wordwrap": "^0.0.3",
-    "yargs": "^3.5.4"
+    "yargs": "^3.5.4",
+    "cferdinandi/smooth-scroll": "^9.1.3"
   }
 }
