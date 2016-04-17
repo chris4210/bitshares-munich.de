@@ -2,7 +2,7 @@
 
 module.exports = {
     app_title: 'bitshares-munich',
-    http_port: '8081',
+    http_port: '8080',
     http_host: 'localhost',
     winston_log_level: 'debug',
     price_list_metadata: [
