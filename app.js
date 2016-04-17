@@ -1,6 +1,6 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-var express = require('express');
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 var config = require(__dirname + '/persistent-storage/options.js');
+var express = require('express');
 
 var compression = require('compression');
 var app = express(),
@@ -9,9 +9,10 @@ var app = express(),
 
 var oneDay = 86400000;
 
+app.use(express.static(__dirname + '/public'));
+
 app.use(compression());
 
-app.use(express.static(__dirname + '/public'));
 app.engine('html', swig.renderFile);
 
 app.set('view engine', 'html');
@@ -29,6 +30,7 @@ app.get('/', function (req, res) {
     });
 });
 
-var port = process.env.PORT || config.http_port;
-app.listen(port);
-console.log('Listening at port ' + config.http_port + ' ...');
+var server = app.listen(process.env.PORT || config.http_port, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+});
